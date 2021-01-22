@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/const_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dealitem.DealItemFragment">
+
+  <ImageView
+      android:id="@+id/deal_item_img"
+      android:layout_width="match_parent"
+      android:layout_height="400dp"
+      android:padding="@dimen/dimen_5_dp"
+      app:layout_constraintBottom_toTopOf="@+id/deal_item_detail_txt"
+      app:layout_constraintEnd_toEndOf="@+id/const_Layout"
+      app:layout_constraintHorizontal_bias="1.0"
+      app:layout_constraintStart_toStartOf="@+id/const_Layout"
+      app:layout_constraintTop_toTopOf="@+id/const_Layout"
+      app:layout_constraintVertical_bias="0.139" />
+
+  <TextView
+      android:id="@+id/deal_item_sale_price"
+      style="@style/PriceTextRed"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/dimen_5_dp"
+      android:textAlignment="textStart"
+      app:layout_constraintStart_toStartOf="@+id/const_Layout"
+      app:layout_constraintTop_toBottomOf="@id/deal_item_img"
+      tools:text="$8.98" />
+
+  <TextView
+      android:id="@+id/deal_item_reg_txt"
+      style="@style/PriceTextGrey"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="@string/reg"
+      app:layout_constraintBaseline_toBaselineOf="@+id/deal_item_reg_price"
+      app:layout_constraintEnd_toStartOf="@id/deal_item_reg_price" />
+
+  <TextView
+      android:id="@+id/deal_item_reg_price"
+      style="@style/PriceTextGrey"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/dimen_5_dp"
+      android:textAlignment="viewEnd"
+      app:layout_constraintEnd_toEndOf="@+id/const_Layout"
+      app:layout_constraintTop_toBottomOf="@id/deal_item_img"
+      tools:text="$13.98" />
+
+  <TextView
+      android:id="@+id/deal_item_title"
+      style="@style/RegularText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:padding="@dimen/dimen_5_dp"
+      android:textAlignment="viewStart"
+      app:layout_constraintStart_toStartOf="@+id/const_Layout"
+      app:layout_constraintTop_toBottomOf="@id/deal_item_sale_price"
+      tools:text="Title" />
+
+  <TextView
+      android:id="@+id/deal_item_detail_txt"
+      style="@style/DesText"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:padding="@dimen/dimen_2_dp"
+      app:layout_constraintBottom_toTopOf="@+id/add_to_list_btn"
+      app:layout_constraintEnd_toEndOf="@+id/const_Layout"
+      app:layout_constraintStart_toStartOf="@+id/const_Layout"
+      app:layout_constraintTop_toBottomOf="@id/deal_item_title"
+      tools:text="Consistency is the key of everything" />
+
+  <Button
+      android:id="@+id/add_to_list_btn"
+      android:layout_width="0dp"
+      android:layout_height="48dp"
+      android:padding="@dimen/dimen_5_dp"
+      android:text="@string/add_to_list"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toStartOf="@+id/add_to_cart_btn"
+      app:layout_constraintHorizontal_weight="5"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/deal_item_detail_txt"
+      app:layout_constraintVertical_bias="0.97" />
+
+  <Button
+      android:id="@+id/add_to_cart_btn"
+      android:layout_width="0dp"
+      android:layout_height="48dp"
+      android:backgroundTint="@color/colorPrimary"
+      android:padding="@dimen/dimen_5_dp"
+      android:text="@string/add_to_cart"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_weight="5"
+      app:layout_constraintStart_toEndOf="@+id/add_to_list_btn"
+      app:layout_constraintTop_toBottomOf="@+id/deal_item_detail_txt"
+      app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,93 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'androidx.navigation.safeargs'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+  compileSdkVersion 29
+  defaultConfig {
+    applicationId "com.target.targetcasestudy"
+    minSdkVersion 21
+    targetSdkVersion 29
+    versionCode 1
+    versionName "1.0"
+    testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+  }
+
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+
+  buildTypes {
+    debug {
+      minifyEnabled true
+      buildConfigField("String", "BASE_URL", "\"https://api.target.com/mobile_case_study_deals/v1/\"")
+    }
+    release {
+      buildConfigField("String", "BASE_URL", "\"https://api.target.com/mobile_case_study_deals/v1/\"")
+      minifyEnabled false
+      proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+    }
+  }
+  compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
+  }
+  buildFeatures {
+    viewBinding true
+  }
+
+  kotlinOptions {
+    jvmTarget = '1.8'
+  }
+}
+
+dependencies {
+  implementation fileTree(dir: 'libs', include: ['*.jar'])
+  implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+  implementation "androidx.core:core-ktx:${library.ktx}"
+  implementation "androidx.appcompat:appcompat:1.2.0"
+  implementation "androidx.constraintlayout:constraintlayout:2.0.4"
+  implementation "androidx.recyclerview:recyclerview:1.1.0"
+
+  //Lifecycle
+  implementation "androidx.lifecycle:lifecycle-extensions:${library.lifeCycle}"
+  kapt "androidx.lifecycle:lifecycle-compiler:${library.lifeCycle}"
+
+  //Gson
+  implementation "com.google.code.gson:gson:${library.gson}"
+
+  //network
+  implementation "com.squareup.okhttp3:logging-interceptor:${library.logging_interceptor}"
+  implementation "com.squareup.retrofit2:retrofit:${library.retrofit}"
+  implementation "com.squareup.retrofit2:converter-gson:${library.retrofit}"
+
+  //livedata
+  implementation "androidx.lifecycle:lifecycle-livedata-ktx:${library.lifeCycle}"
+
+  //Coroutines
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${library.kotlinx_coroutines_core}"
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:${library.kotlinx_coroutines_android}"
+  implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${library.lifeCycle}"
+
+  // Navigation
+  implementation "android.arch.navigation:navigation-fragment-ktx:${library.navigationVersion}"
+  implementation "android.arch.navigation:navigation-ui-ktx:${library.navigationVersion}"
+
+
+  //Dagger - Hilt
+  implementation "com.google.dagger:hilt-android:2.28-alpha"
+  kapt "com.google.dagger:hilt-android-compiler:2.28-alpha"
+
+  // Glide
+  implementation "com.github.bumptech.glide:glide:${library.glide}"
+
+  // Testing
+  testImplementation 'junit:junit:4.13'
+  androidTestImplementation 'com.android.support.test:runner:1.0.2'
+  androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
