@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.NavController
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import com.target.targetcasestudy.ui.payment.PaymentDialogFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -14,6 +17,9 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
+
+    val navController = this.findNavController(R.id.nav_host_fragment)
+    NavigationUI.setupActionBarWithNavController(this, navController)
 
   }
 
@@ -31,4 +37,10 @@ class MainActivity : AppCompatActivity() {
       else -> false
     }
   }
+
+  override fun onSupportNavigateUp(): Boolean {
+    val navController = this.findNavController(R.id.nav_host_fragment)
+    return navController.navigateUp()
+  }
+
 }

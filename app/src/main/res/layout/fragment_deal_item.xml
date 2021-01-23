@@ -55,16 +55,17 @@
       android:id="@+id/deal_item_title"
       style="@style/RegularText"
       android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
+      android:layout_height="0dp"
       android:padding="@dimen/dimen_5_dp"
-      android:textAlignment="viewStart"
       app:layout_constraintStart_toStartOf="@+id/const_Layout"
       app:layout_constraintTop_toBottomOf="@id/deal_item_sale_price"
+      app:layout_constraintVertical_bias="0.48000002"
       tools:text="Title" />
 
   <TextView
       android:id="@+id/deal_item_detail_txt"
       style="@style/DesText"
+      android:gravity="start"
       android:layout_width="match_parent"
       android:layout_height="0dp"
       android:padding="@dimen/dimen_2_dp"
@@ -77,28 +78,24 @@
   <Button
       android:id="@+id/add_to_list_btn"
       android:layout_width="0dp"
-      android:layout_height="48dp"
+      android:layout_height="wrap_content"
       android:padding="@dimen/dimen_5_dp"
       android:text="@string/add_to_list"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toStartOf="@+id/add_to_cart_btn"
       app:layout_constraintHorizontal_weight="5"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/deal_item_detail_txt"
-      app:layout_constraintVertical_bias="0.97" />
+      app:layout_constraintStart_toStartOf="parent" />
 
   <Button
       android:id="@+id/add_to_cart_btn"
       android:layout_width="0dp"
-      android:layout_height="48dp"
+      android:layout_height="wrap_content"
       android:backgroundTint="@color/colorPrimary"
       android:padding="@dimen/dimen_5_dp"
       android:text="@string/add_to_cart"
-      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintBaseline_toBaselineOf="@+id/add_to_list_btn"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_weight="5"
-      app:layout_constraintStart_toEndOf="@+id/add_to_list_btn"
-      app:layout_constraintTop_toBottomOf="@+id/deal_item_detail_txt"
-      app:layout_constraintVertical_bias="0.0" />
+      app:layout_constraintStart_toEndOf="@+id/add_to_list_btn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
