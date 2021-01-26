@@ -1,5 +1,6 @@
 package com.target.targetcasestudy.ui.deallist
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -30,6 +31,7 @@ class DealsListViewModel (private val dealsRepository: DealsRepository) : ViewMo
             _status.value = DealListStatus.LOADING
             try {
                 _dealList.value =  dealsRepository.getDeals()
+                dealsRepository.getDeals1()
                 _status.value = DealListStatus.DONE
             } catch (e: Exception) {
                 _status.value = DealListStatus.ERROR

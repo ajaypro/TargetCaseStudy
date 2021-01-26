@@ -9,8 +9,12 @@ import javax.inject.Singleton
 @Singleton
 class DealsRepository @Inject constructor(private val networkService: NetworkService) {
 
-    suspend fun getDeals(): Deals = withContext(Dispatchers.Default) {
+    suspend fun getDeals(): Deals =
         networkService.doDealsCall()
-    }
+
+
+    suspend fun getDeals1(): Deals =
+        networkService.doDealsCall()
+
 
 }
